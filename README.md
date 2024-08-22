@@ -59,8 +59,7 @@ Todas las pruebas se encuentran el directorio spec
 
 Mi nombre es Álvaro Véliz y soy Ingeniero de Software Senior.
 
-- 
-- 📫 Si desea contactarme visite mi [perfil de LinkedIn](https://www.linkedin.com/in/alvaroveliz/)
+📫 Si desea contactarme visite mi [perfil de LinkedIn](https://www.linkedin.com/in/alvaroveliz/)
 
 Estos son mis stats en Github:
 
