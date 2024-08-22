@@ -9,6 +9,24 @@ Este proyecto es una aplicación en Ruby que permite conectarse a una API, obten
 
 ## Instalación
 
+1. Clonar este repositorio en tu máquina local:
+
+```bash
+git clone https://github.com/alvaroveliz/simple-quote-finance-calculator.git
+```
+
+2. Entrar en el directorio del proyecto
+
+```bash
+cd simple-quote-finance-calculator
+```
+
+3. Instalar las dependencias
+
+```bash
+bundle install
+```
+
 ## Uso
 
 ## Ejemplo
