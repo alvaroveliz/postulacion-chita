@@ -28,9 +28,21 @@ class FinanceCalculator
 
     # Result as json
     {
-      finance_cost: finance_cost.floor(),
-      cash_to_receive: cash_to_receive.floor(),
-      surplus: surplus.floor()
+      finance_cost: amount_format(finance_cost),
+      cash_to_receive: amount_format(cash_to_receive),
+      surplus: amount_format(surplus)
     }
+  end
+
+  private 
+
+  def amount_format(amount)
+    amount = amount.floor().to_s
+    init_amount = ""
+    while amount.length > 3
+      init_amount = ".#{amount[(amount.size - 3)..amount.size]}#{init_amount}"
+      amount = amount[0..-4]
+    end
+    "$#{amount}#{init_amount}"
   end
 end

@@ -16,9 +16,9 @@ RSpec.describe FinanceCalculator do
     it 'calculates finance cost, cash to receive, and surplus' do
       result = calculator.process_invoice(invoice)
 
-      expect(result[:finance_cost]).to eq(11150)
-      expect(result[:cash_to_receive]).to eq(978849)
-      expect(result[:surplus]).to eq(10000)
+      expect(result[:finance_cost]).to eq("$11.150")
+      expect(result[:cash_to_receive]).to eq("$978.849")
+      expect(result[:surplus]).to eq("$10.000")
     end
   end
 end
