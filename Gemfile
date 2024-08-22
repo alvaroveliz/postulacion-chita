@@ -6,3 +6,5 @@ gem 'dotenv', require: 'dotenv/load'
 gem 'net-http', '~> 0.4.1'
 gem 'json', '~> 2.6', '>= 2.6.3'
 
+gem 'rspec'
+
