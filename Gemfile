@@ -8,3 +8,6 @@ gem 'json', '~> 2.6', '>= 2.6.3'
 
 gem 'rspec'
 
+group :development, :test do
+  gem 'webmock'
+end
