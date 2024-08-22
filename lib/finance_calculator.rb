@@ -6,35 +6,37 @@ class FinanceCalculator
   def process_invoice(invoice)
     quote = @api_client.fetch_quote(invoice)
 
-    # Variables to use
-    amount = invoice.amount
-    advance_percent = quote['advance_percent']
-    document_rate = quote['document_rate']
-    commission = quote['commission']
-    days = invoice.days_until_due
+    finance_cost = calculate_finance_cost(invoice.amount, quote['advance_percent'], quote['document_rate'], invoice.days_until_due)
+    cash_to_receive = calculate_cash_to_receive(invoice.amount, quote['advance_percent'], finance_cost, quote['commission'])
+    surplus = calculate_surplus(invoice.amount, quote['advance_percent'])
 
+    format_results(finance_cost, cash_to_receive, surplus)
+  end
 
-    # Finance cost
+  private
+
+  def calculate_finance_cost(amount, advance_percent, document_rate, days)
     advance_amount = amount * (advance_percent / 100)
     daily_rate = (document_rate / 100) / 30
-    finance_cost = advance_amount * daily_rate * days
+    advance_amount * daily_rate * days
+  end
 
-    # Cash to receive
+  def calculate_cash_to_receive(amount, advance_percent, finance_cost, commission)
     advance_amount = amount * (advance_percent / 100)
-    cash_to_receive = advance_amount - (finance_cost + commission)
+    advance_amount - (finance_cost + commission)
+  end
 
-    # Surplus
-    surplus = amount - (amount * (advance_percent / 100))
+  def calculate_surplus(amount, advance_percent)
+    amount - (amount * (advance_percent / 100))
+  end
 
-    # Result as json
+  def format_results(finance_cost, cash_to_receive, surplus)
     {
       finance_cost: amount_format(finance_cost),
       cash_to_receive: amount_format(cash_to_receive),
       surplus: amount_format(surplus)
     }
   end
-
-  private 
 
   def amount_format(amount)
     amount = amount.floor().to_s
