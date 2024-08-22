@@ -1,1 +1,1 @@
-# Factura Finance calculator
+# Simple Quote Finance calculator

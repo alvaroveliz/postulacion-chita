@@ -1,4 +1,4 @@
-# Factura Finance Calculator
+# Simple Quote Finance calculator
 
 Este proyecto es una aplicación en Ruby que permite conectarse a una API, obtener información sobre una factura, procesar dicha información, y calcular los costos de financiamiento, el giro a recibir y los excedentes relacionados con la operación de la factura.
 
